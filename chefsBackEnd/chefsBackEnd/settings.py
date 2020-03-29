@@ -43,7 +43,7 @@ INSTALLED_APPS = [
 
     'menus',
 
-    'pillow',
+    # 'pillow',
 ]
 
 MIDDLEWARE = [
