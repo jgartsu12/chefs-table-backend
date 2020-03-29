@@ -1,8 +1,6 @@
 from django.db import models
 
 class Menus(models.Model):
-    def __init__(self, titles):
-        self.titles = titles
 
     BREAKFAST_MENU = 'BREAKFAST MENU'
     LUNCH_MENU = 'LUNCH MENU'
