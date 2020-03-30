@@ -58,7 +58,7 @@ class SoupMenu(models.Model):
     )
 
     soup_name = models.CharField(null=True, max_length=120, default='add soup name here')
-
+    soup_description = models.TextField(default='Describe soup here')
     def __str__(self):
         return(self)
 

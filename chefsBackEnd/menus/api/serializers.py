@@ -11,4 +11,4 @@ class MenusSerializer(serializers.ModelSerializer):
 class SoupsSerializer(serializers.ModelSerializer):
     class Meta:
         model = SoupMenu
-        fields = ('id', 'soup_name', 'soup_prices', 'soup_sizes')
+        fields = ('id', 'soup_name', 'soup_prices', 'soup_sizes', 'soup_description')
