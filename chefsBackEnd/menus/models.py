@@ -1,24 +1,43 @@
 from django.db import models
 
-class Menus(models.Model):
+class FoodMenus(models.Model):
     BREAKFAST_MENU = 'BREAKFAST MENU'
     LUNCH_MENU = 'LUNCH MENU'
-    SOUP_MENU = 'SOUP MENU'
 
-    MENU_TITLES = [
+    FOOD_MENU_TITLES = [
         (BREAKFAST_MENU, 'BREAKFAST MENU'),
         (LUNCH_MENU, 'LUNCH MENU'),
-        (SOUP_MENU, 'SOUP MENU')
     ]
 
-    titles = models.CharField (
+    title = models.CharField (
         max_length=150,
-        choices=MENU_TITLES,
-        default=SOUP_MENU
+        choices=FOOD_MENU_TITLES,
+        default=BREAKFAST_MENU
     )
 
-    menu_items = models.CharField(max_length=120, default='added food or soup item here')
-    menu_items_description = models.TextField(default='describe food or soup item here')
+    name = models.CharField(max_length=120, default='Add items here')
+    description = models.TextField(default='Add items here')
+    prices = models.DecimalField(null=True, blank=True, max_digits=4, decimal_places=2)
+
+    def __str__(self):
+        return self
+
+class SoupMenu(models.Model):
+    SMALL_SOUP = 'Small'
+    MEDIUM_SOUP = 'Medium'
+    LARGE_SOUP = 'Large'
+
+    SOUP_SIZES = [
+        (SMALL_SOUP, 'Small'),
+        (MEDIUM_SOUP, 'Medium'),
+        (LARGE_SOUP, 'Large')
+    ]
+
+    soup_sizes = models.CharField (
+        default='Select soup size',
+        max_length=6,
+        choices=SOUP_SIZES
+    )
 
     SMALL_SOUP_PRICE = '$4.00'
     MEDIUM_SOUP_PRICE = '6.80'
@@ -38,6 +57,8 @@ class Menus(models.Model):
         default=MEDIUM_SOUP_PRICE
     )
 
-    all_food_but_soups_prices = models.DecimalField(null=True, blank=True, max_digits=4, decimal_places=2)
+    soup_name = models.CharField(null=True, max_length=120, default='add soup name here')
 
+    def __str__(self):
+        return(self)
 

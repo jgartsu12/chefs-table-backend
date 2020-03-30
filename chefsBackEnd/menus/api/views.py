@@ -6,25 +6,49 @@ from rest_framework.generics import (
     UpdateAPIView
 )
 
-from menus.models import Menus
+from menus.models import FoodMenus
+from menus.models import SoupMenu
+
 from .serializers import MenusSerializer
+from .serializers import SoupsSerializer
 
 class MenusListView(ListAPIView):
-    queryset = Menus.objects.all()
+    queryset = FoodMenus.objects.all()
     serializer_class = MenusSerializer
 
 class MenusDetailView(RetrieveAPIView):
-    queryset = Menus.objects.all()
+    queryset = FoodMenus.objects.all()
     serializer_class = MenusSerializer
 
 class MenusCreateView(CreateAPIView):
-    queryset = Menus.objects.all()
+    queryset = FoodMenus.objects.all()
     serializer_class = MenusSerializer
 
 class MenusUpdateView(UpdateAPIView):
-    queryset = Menus.objects.all()
+    queryset = FoodMenus.objects.all()
     serializer_class = MenusSerializer
 
 class MenusDeleteView(DestroyAPIView):
-    queryset = Menus.objects.all()
+    queryset = FoodMenus.objects.all()
     serializer_class = MenusSerializer
+
+# Soups
+class SoupsListView(ListAPIView):
+    queryset = SoupMenu.objects.all()
+    serializer_class = SoupsSerializer
+
+class SoupsDetailView(RetrieveAPIView):
+    queryset = SoupMenu.objects.all()
+    serializer_class = SoupsSerializer
+
+class SoupsCreateView(CreateAPIView):
+    queryset = SoupMenu.objects.all()
+    serializer_class = SoupsSerializer
+
+class SoupsUpdateView(UpdateAPIView):
+    queryset = SoupMenu.objects.all()
+    serializer_class = SoupsSerializer
+
+class SoupsDeleteView(DestroyAPIView):
+    queryset = SoupMenu.objects.all()
+    serializer_class = SoupsSerializer
