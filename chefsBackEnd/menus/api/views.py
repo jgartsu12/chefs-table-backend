@@ -52,3 +52,4 @@ class SoupsUpdateView(UpdateAPIView):
 class SoupsDeleteView(DestroyAPIView):
     queryset = SoupMenu.objects.all()
     serializer_class = SoupsSerializer
+
