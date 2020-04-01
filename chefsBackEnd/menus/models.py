@@ -60,7 +60,7 @@ class SoupMenu(models.Model):
 
     soup_name = models.CharField(null=True, max_length=120, default='add soup name here')
     soup_description = models.TextField(default='Describe soup here')
-    food_thumb_img = models.ImageField(default='Upload image')
+    soup_thumb_img = models.ImageField(default='Upload image')
 
    
     def __str__(self):
