@@ -6,9 +6,9 @@ from menus.models import SoupMenu
 class MenusSerializer(serializers.ModelSerializer):
     class Meta:
         model = FoodMenus
-        fields = ('id', 'title', 'name', 'description', 'prices')
+        fields = ('id', 'title', 'name', 'description', 'prices', 'food_thumb_img')
 
 class SoupsSerializer(serializers.ModelSerializer):
     class Meta:
         model = SoupMenu
-        fields = ('id', 'soup_name', 'soup_prices', 'soup_sizes', 'soup_description')
+        fields = ('id', 'soup_name', 'soup_prices', 'soup_sizes', 'soup_description', 'soup_thumb_img')

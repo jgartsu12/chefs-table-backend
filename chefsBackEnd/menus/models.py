@@ -18,6 +18,7 @@ class FoodMenus(models.Model):
     name = models.CharField(max_length=120, default='Add items here')
     description = models.TextField(default='Add items here')
     prices = models.DecimalField(null=True, blank=True, max_digits=4, decimal_places=2)
+    food_thumb_img = models.ImageField(default='Upload image')
 
     def __str__(self):
         return self.title
@@ -59,6 +60,8 @@ class SoupMenu(models.Model):
 
     soup_name = models.CharField(null=True, max_length=120, default='add soup name here')
     soup_description = models.TextField(default='Describe soup here')
+    food_thumb_img = models.ImageField(default='Upload image')
+
    
     def __str__(self):
-        return self.title
+        return self.soup_name
