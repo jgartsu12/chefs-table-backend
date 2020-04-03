@@ -1,11 +1,17 @@
 from django.urls import path
 
 from .views import (
-    MenusListView,
-    MenusDetailView,
-    MenusCreateView,
-    MenusUpdateView,
-    MenusDeleteView,
+    LunchListView,
+    LunchDetailView,
+    LunchCreateView,
+    LunchUpdateView,
+    LunchDeleteView,
+
+    BreakfastListView,
+    BreakfastDetailView,
+    BreakfastCreateView,
+    BreakfastUpdateView,
+    BreakfastDeleteView,
 
     SoupsListView,
     SoupsDetailView,
@@ -15,11 +21,17 @@ from .views import (
 )
 
 urlpatterns = [
-    path('', MenusListView.as_view()),
-    path('create/', MenusCreateView.as_view()),
-    path('<pk>', MenusDetailView.as_view()),
-    path('<pk>/update/', MenusUpdateView.as_view()),
-    path('<pk>/delete/', MenusDeleteView.as_view()),
+    path('lunch/', LunchListView.as_view()),
+    path('lunch/create/', LunchCreateView.as_view()),
+    path('lunch/<pk>', LunchDetailView.as_view()),
+    path('lunch/<pk>/update/', LunchUpdateView.as_view()),
+    path('lunch/<pk>/delete/', LunchDeleteView.as_view()),
+
+    path('breakfast/', BreakfastListView.as_view()),
+    path('breakfast/create/', BreakfastCreateView.as_view()),
+    path('breakfast/<pk>', BreakfastDetailView.as_view()),
+    path('breakfast/<pk>/update/', BreakfastUpdateView.as_view()),
+    path('breakfast/<pk>/delete/', BreakfastDeleteView.as_view()),
 
     path('soups/', SoupsListView.as_view()),
     path('soups/create/', SoupsCreateView.as_view()),

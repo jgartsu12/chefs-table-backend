@@ -1,14 +1,20 @@
 from rest_framework import serializers
 
-from menus.models import FoodMenus
+from menus.models import LunchMenu
+from menus.models import BreakfastMenu
 from menus.models import SoupMenu
 
-class MenusSerializer(serializers.ModelSerializer):
+class LunchSerializer(serializers.ModelSerializer):
     class Meta:
-        model = FoodMenus
-        fields = ('id', 'title', 'name', 'description', 'prices', 'food_thumb_img')
+        model = LunchMenu
+        fields = ('id', 'title', 'name', 'description', 'front_thumb_img_url')
 
-class SoupsSerializer(serializers.ModelSerializer):
+class BreakfastSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BreakfastMenu
+        fields = ('id', 'title', 'name', 'description', 'front_thumb_img_url')
+
+class SoupSerializer(serializers.ModelSerializer):
     class Meta:
         model = SoupMenu
-        fields = ('id', 'soup_name', 'soup_prices', 'soup_sizes', 'soup_description', 'soup_thumb_img')
+        fields = ('id', 'title', 'name', 'description', 'front_thumb_img_url')
