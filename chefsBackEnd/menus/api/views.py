@@ -16,7 +16,7 @@ from .serializers import LunchSerializer
 from .serializers import BreakfastSerializer
 from .serializers import SoupSerializer
 
-# breakfast
+# lunch
 class LunchListView(ListAPIView):
     queryset = LunchMenu.objects.all()
     serializer_class = LunchSerializer

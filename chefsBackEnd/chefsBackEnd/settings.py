@@ -25,19 +25,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-
     'django.contrib.sites',
-    # 'allauth',
-    # 'allauth.account',
-    # 'allauth.socialaccount',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'corsheaders',
     'rest_auth',
     'rest_auth.registration',
     'rest_framework',
-    # 'rest_framework.authtoken',
+    'rest_framework.authtoken',
 
     'menus',
+    'phlogfeeder'
 ]
 
 MIDDLEWARE = [
@@ -138,3 +138,9 @@ CORS_ALLOW_METHODS = [
     'POST',
     'PUT',
 ]
+
+CSRF_COOKIE_NAME = "csrftoken"
+
+ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
