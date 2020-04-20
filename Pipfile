@@ -10,6 +10,11 @@ django = "*"
 django-rest-framework = "*"
 django-cors-headers = "*"
 pillow = "*"
+django-rest-auth = {extras = ["with-social"],version = "*"}
+pusher = "*"
+django-allauth = "*"
+djangorestframework-simplejwt = "*"
+djangorestframework-jwt = "*"
 
 [requires]
 python_version = "3.8"

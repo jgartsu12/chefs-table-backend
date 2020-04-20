@@ -13,7 +13,7 @@ SECRET_KEY = 'p%s-9w1l268@!b$p#92dj26q)pv7!&ln^3m(1j5#!k8pkc9@(u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -27,17 +27,18 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
     'corsheaders',
-    'rest_auth',
-    'rest_auth.registration',
+    # 'rest_auth',
+    # 'rest_auth.registration',
     'rest_framework',
-    'rest_framework.authtoken',
+    # 'rest_framework.authtoken',
 
     'menus',
-    'phlogfeeder'
+    'phlogfeeder',
+    'login'
 ]
 
 MIDDLEWARE = [
@@ -113,22 +114,33 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-SITE_ID = 1
+# SITE_ID = 1
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.AllowAny',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
+        # 'rest_framework.authentication.TokenAuthentication',
+        # 'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    )
+    
 }
 
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ALLOW_CREDENTIALS = True
 
-# CORS_ORIGIN_WHITELIST = [
-#     'http://127.0.0.1:3000'
-# ]
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000'
+]
 
 CORS_ALLOW_METHODS = [
     'DELETE',
@@ -139,8 +151,31 @@ CORS_ALLOW_METHODS = [
     'PUT',
 ]
 
-CSRF_COOKIE_NAME = "csrftoken"
+JWT_AUTH = {
+    'JWT_RESPONSE_PAYLOAD_HANDLER': 'chefsBackEnd.utils.resp_handler',
+    
+    # 'JWT_ENCODE_HANDLER':
+    # 'rest_framework_jwt.utils.jwt_encode_handler',
 
-ACCOUNT_EMAIL_REQUIRED = False
-ACCOUNT_AUTHENTICATION_METHOD = 'username'
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+    # 'JWT_DECODE_HANDLER':
+    # 'rest_framework_jwt.utils.jwt_decode_handler',
+
+    # 'JWT_PAYLOAD_HANDLER':
+    # 'rest_framework_jwt.utils.jwt_payload_handler',
+
+    # 'JWT_PAYLOAD_GET_USER_ID_HANDLER':
+    # 'rest_framework_jwt.utils.jwt_get_user_id_from_payload_handler',
+
+    'JWT_ALGORITHM': 'HS256',
+    'JWT_VERIFY': True,
+
+}
+
+
+# CSRF_COOKIE_NAME = "csrftoken"
+
+# ACCOUNT_EMAIL_REQUIRED = False
+# ACCOUNT_AUTHENTICATION_METHOD = 'username'
+# ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+# ACCOUNT_LOGOUT_ON_GET = True
