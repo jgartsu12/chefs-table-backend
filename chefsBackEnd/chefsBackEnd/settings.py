@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     # 'allauth.account',
     # 'allauth.socialaccount',
     'corsheaders',
+    'pyuploadcare.dj',
     # 'rest_auth',
     # 'rest_auth.registration',
     'rest_framework',
@@ -38,7 +39,8 @@ INSTALLED_APPS = [
 
     'menus',
     'phlogfeeder',
-    'login'
+    'login',
+    'posts',
 ]
 
 MIDDLEWARE = [
@@ -65,10 +67,12 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'chefsBackEnd.wsgi.application'
 
@@ -104,17 +108,33 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'build/static'),
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+UPLOADCARE = {
+    'pub_key': 'c449d0270b0fee596b6d',
+    'secret': '7faffe2af80c8db3f9b0',
+}
 
-MEDIA_URL = '/media/'
+
+# STATICFILES_FINDERS = [
+#     'django.contrib.staticfiles.finders.FileSystemFinder',
+#     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+# ]
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
-# SITE_ID = 1
+
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
+
+
+SITE_ID = 1
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
@@ -153,29 +173,8 @@ CORS_ALLOW_METHODS = [
 
 JWT_AUTH = {
     'JWT_RESPONSE_PAYLOAD_HANDLER': 'chefsBackEnd.utils.resp_handler',
-    
-    # 'JWT_ENCODE_HANDLER':
-    # 'rest_framework_jwt.utils.jwt_encode_handler',
-
-    # 'JWT_DECODE_HANDLER':
-    # 'rest_framework_jwt.utils.jwt_decode_handler',
-
-    # 'JWT_PAYLOAD_HANDLER':
-    # 'rest_framework_jwt.utils.jwt_payload_handler',
-
-    # 'JWT_PAYLOAD_GET_USER_ID_HANDLER':
-    # 'rest_framework_jwt.utils.jwt_get_user_id_from_payload_handler',
-
     'JWT_ALGORITHM': 'HS256',
     'JWT_VERIFY': True,
-
 }
 
-
-# CSRF_COOKIE_NAME = "csrftoken"
-
-# ACCOUNT_EMAIL_REQUIRED = False
-# ACCOUNT_AUTHENTICATION_METHOD = 'username'
-# ACCOUNT_EMAIL_VERIFICATION = 'none'
-
-# ACCOUNT_LOGOUT_ON_GET = True
+CSRF_COOKIE_NAME = "csrftoken"

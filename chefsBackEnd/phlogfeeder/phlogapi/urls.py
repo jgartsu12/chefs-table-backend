@@ -5,13 +5,15 @@ from .views import (
     PhlogDetailView,
     PhlogCreateView,
     PhlogUpdateView,
-    PhlogDeleteView
+    PhlogDeleteView,
+    PostView
 )
 
 urlpatterns = [
     path('phlog/', PhlogListView.as_view()),
-    path('phlog/create/', PhlogDeleteView.as_view()),
+    path('phlog/create/', PhlogCreateView.as_view()),
     path('phlog/<pk>', PhlogDetailView.as_view()),
     path('phlog/<pk>/update/', PhlogUpdateView.as_view()),
-    path('phlog/<pk>/delete/', PhlogDeleteView.as_view())
+    path('phlog/<pk>/delete/', PhlogDeleteView.as_view()),
+    path('posts/', PostView.as_view()),
 ]
