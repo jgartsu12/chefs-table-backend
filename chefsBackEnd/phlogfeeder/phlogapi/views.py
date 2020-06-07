@@ -2,8 +2,9 @@ from phlogfeeder.models import PhlogFeeder
 from .serializers import PhlogFeederSerializers
 from rest_framework import permissions
 from rest_framework.response import Response
-from rest_framework.parsers import FormParser, MultiPartParser
+from rest_framework.parsers import JSONParser, FormParser, MultiPartParser
 from rest_framework import status 
+import cloudinary.uploader
 from rest_framework.views import APIView
 from rest_framework.generics import (
     ListAPIView,
@@ -51,6 +52,19 @@ class PhlogDeleteView(DestroyAPIView):
     queryset = PhlogFeeder.objects.all()
     serializer_class = PhlogFeederSerializers
     permission_classes = (permissions.AllowAny, )
+
+class ImageUploadView(APIView):
+    parser_classes = (MultiPartParser, JSONParser,)
+    permission_classes = (permissions.AllowAny, )
+    
+    @staticmethod
+    def post(request):
+        file = request.data.get('picture')
+        upload_data = cloudinary.uploader.upload(file)
+        return Response({
+            'status': 'success',
+            'data': upload_data,
+        }, status=201)
 
 class PostView(APIView):
     parser_classes = (MultiPartParser, FormParser)

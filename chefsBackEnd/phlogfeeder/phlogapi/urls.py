@@ -6,7 +6,8 @@ from .views import (
     PhlogCreateView,
     PhlogUpdateView,
     PhlogDeleteView,
-    PostView
+    PostView,
+    ImageUploadView,
 )
 
 urlpatterns = [
@@ -16,4 +17,5 @@ urlpatterns = [
     path('phlog/<pk>/update/', PhlogUpdateView.as_view()),
     path('phlog/<pk>/delete/', PhlogDeleteView.as_view()),
     path('posts/', PostView.as_view()),
+    path('uploads/', ImageUploadView.as_view()),
 ]

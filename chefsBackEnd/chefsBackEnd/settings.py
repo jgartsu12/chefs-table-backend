@@ -1,4 +1,5 @@
 import os
+import cloudinary
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -32,6 +33,7 @@ INSTALLED_APPS = [
     # 'allauth.socialaccount',
     'corsheaders',
     'pyuploadcare.dj',
+    # 'cloudinary',
     # 'rest_auth',
     # 'rest_auth.registration',
     'rest_framework',
@@ -121,6 +123,14 @@ UPLOADCARE = {
     'secret': '7faffe2af80c8db3f9b0',
 }
 
+# cloudinary.config(
+#     cloud_name = 'chefstable',
+#     api_key = '598176259794457',
+#     api_secret = 'fnk74qympmrnUy1y2RjLPPCyO60',
+# )
+
+
+
 
 # STATICFILES_FINDERS = [
 #     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -159,7 +169,8 @@ CORS_ALLOW_CREDENTIALS = True
 
 
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000'
+    'http://localhost:3000',
+    'http://localhost:5000'
 ]
 
 CORS_ALLOW_METHODS = [
