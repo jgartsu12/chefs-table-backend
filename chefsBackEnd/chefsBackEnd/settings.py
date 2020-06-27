@@ -1,5 +1,5 @@
 import os
-import cloudinary
+# import cloudinary
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     # 'allauth.account',
     # 'allauth.socialaccount',
     'corsheaders',
-    'pyuploadcare.dj',
+    # 'pyuploadcare.dj',
     # 'cloudinary',
     # 'rest_auth',
     # 'rest_auth.registration',
@@ -40,9 +40,9 @@ INSTALLED_APPS = [
     # 'rest_framework.authtoken',
 
     'menus',
-    'phlogfeeder',
+    # 'phlogfeeder',
     'login',
-    'posts',
+    # 'posts',
 ]
 
 MIDDLEWARE = [
@@ -118,10 +118,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'build/static'),
 ]
 
-UPLOADCARE = {
-    'pub_key': 'c449d0270b0fee596b6d',
-    'secret': '7faffe2af80c8db3f9b0',
-}
+# UPLOADCARE = {
+#     'pub_key': 'c449d0270b0fee596b6d',
+#     'secret': '7faffe2af80c8db3f9b0',
+# }
 
 # cloudinary.config(
 #     cloud_name = 'chefstable',
@@ -164,7 +164,7 @@ REST_FRAMEWORK = {
     
 }
 
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
 

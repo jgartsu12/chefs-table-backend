@@ -15,8 +15,8 @@ urlpatterns = [
     path('login/', include('login.urls')),
     path('admin/', admin.site.urls),
     path('api/', include('menus.api.urls')),
-    path('phlogapi/', include('phlogfeeder.phlogapi.urls')),
-    path('postsapi/', include('posts.postsapi.urls')),
+    # path('phlogapi/', include('phlogfeeder.phlogapi.urls')),
+    # path('postsapi/', include('posts.postsapi.urls')),
 ]
 
 if settings.DEBUG:
