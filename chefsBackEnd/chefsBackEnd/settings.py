@@ -175,7 +175,11 @@ CORS_ALLOW_CREDENTIALS = True
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
-    'http://localhost:5000'
+    'http://localhost:5000',
+
+    'https://chefs-table-mock-site.herokuapp.com',
+    ' https://git.heroku.com/phlog-api.git'
+
 ]
 
 CORS_ALLOW_METHODS = [
