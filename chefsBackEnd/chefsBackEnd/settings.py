@@ -14,9 +14,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'p%s-9w1l268@!b$p#92dj26q)pv7!&ln^3m(1j5#!k8pkc9@(u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['mock-chefs-table-api.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
