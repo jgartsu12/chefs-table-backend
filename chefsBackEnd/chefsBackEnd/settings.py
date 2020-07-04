@@ -102,40 +102,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
-]
+)
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# UPLOADCARE = {
-#     'pub_key': 'c449d0270b0fee596b6d',
-#     'secret': '7faffe2af80c8db3f9b0',
-# }
-
-# cloudinary.config(
-#     cloud_name = 'chefstable',
-#     api_key = '598176259794457',
-#     api_secret = 'fnk74qympmrnUy1y2RjLPPCyO60',
-# )
-
-
-
-
-# STATICFILES_FINDERS = [
-#     'django.contrib.staticfiles.finders.FileSystemFinder',
-#     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-# ]
-
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-
-
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
-
 
 SITE_ID = 1
 
