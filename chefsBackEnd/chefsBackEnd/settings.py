@@ -29,22 +29,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-
-    # 'allauth',
-    # 'allauth.account',
-    # 'allauth.socialaccount',
     'corsheaders',
-    # 'pyuploadcare.dj',
-    # 'cloudinary',
-    # 'rest_auth',
-    # 'rest_auth.registration',
     'rest_framework',
-    # 'rest_framework.authtoken',
-
     'menus',
-    # 'phlogfeeder',
     'login',
-    # 'posts',
 ]
 
 MIDDLEWARE = [
