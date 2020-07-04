@@ -178,7 +178,7 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:5000',
 
     'https://chefs-table-mock-site.herokuapp.com',
-    ' https://git.heroku.com/phlog-api.git'
+    # 'https://git.heroku.com/phlog-api.git'
 
 ]
 
