@@ -1,1 +1,3 @@
-web: gunicorn chefsBackEnd/chefsBackEnd.wsgi
+web: gunicorn chefsBackEnd.wsgi --log-file-
+
+
