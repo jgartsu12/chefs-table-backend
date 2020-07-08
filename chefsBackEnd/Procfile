@@ -1,4 +1,4 @@
-web: gunicorn chefsBackEnd.wsgi:application
+web: gunicorn chefsBackEnd.wsgi:application --log-file -
 
 
 
