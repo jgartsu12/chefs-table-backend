@@ -1,3 +1,5 @@
 web: gunicorn chefsBackEnd.wsgi:application 
+gunicorn chefsBackEnd.settings.wsgi:application
+
 
 
