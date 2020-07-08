@@ -1,4 +1,4 @@
-web: gunicorn chefsBackEnd.settings.wsgi:application
+web: gunicorn chefsBackEnd.wsgi:application
 
 
 
